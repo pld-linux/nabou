@@ -12,7 +12,7 @@ Source1:	%{name}-check
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-config.patch
-URL:		http://www.nabou.org/en/software/nabou/
+URL:		http://www.daemon.de/Nabou
 BuildRequires:	perl-modules
 Requires:	crondaemon
 Requires:	lsof
