@@ -3,7 +3,7 @@ Summary:	Nabou is a system integrity monitor
 Summary(pl):	Nabou - narzêdzie monitoruj±ce integralno¶æ systemu
 Name:		nabou
 Version:	2.1
-Release:	0.9
+Release:	0.91
 License:	GPL
 Group:		Applications/System
 Source0:	http://www.nabou.org/%{name}-%{version}.tar.gz
@@ -52,14 +52,12 @@ rm -rf $RPM_BUILD_ROOT
 
 install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.daily/nabou-check
 
-gzip -9nf README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz sample_configs
+%doc README sample_configs
 %attr(750,root,root) %dir %{_sysconfdir}
 %attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/nabourc
 %attr(700,root,root) %config(noreplace) /etc/cron.daily/nabou-check
