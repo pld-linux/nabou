@@ -14,9 +14,13 @@ Patch1:		%{name}-paths.patch
 Patch2:		%{name}-config.patch
 URL:		http://www.nabou.org/en/software/nabou/
 BuildRequires:	perl-modules
-Requires:	perl-Config-General
 Requires:	crondaemon
 Requires:	lsof
+Requires:	perl-Config-General
+Requires:	perl-Crypt-CBC
+Requires:	perl-Crypt-Primes
+Requires:	perl-Crypt-OpenSSL-RSA
+Requires:	perl-Crypt-OpenSSL-Random
 Requires:	sh-utils
 Requires:	smtpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
