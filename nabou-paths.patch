@@ -6,7 +6,7 @@ diff -urN nabou-2.1/bin/nabou nabou-2.1.dzikus/bin/nabou
  
  # you may edit these values
 -my $configfile = "/etc/nabourc";
-+my $configfile = "/etc/nabou.d/nabourc";
++my $configfile = "/etc/nabou/nabourc";
  my $separator  = "  ";
  my $underline  = "  " . "-" x 56 . "";
  my $suidroot   = "/";

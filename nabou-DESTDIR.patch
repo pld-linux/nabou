@@ -1,6 +1,6 @@
 diff -urN nabou-2.1/Makefile nabou-2.1.dzikus/Makefile
 --- nabou-2.1/Makefile	Wed Feb 27 23:33:32 2002
-+++ nabou-2.1.dzikus/Makefile	Tue Mar  5 13:46:08 2002
++++ nabou-2.1.dzikus/Makefile	Fri Mar  8 10:37:11 2002
 @@ -10,7 +10,7 @@
  
  #
@@ -10,7 +10,7 @@ diff -urN nabou-2.1/Makefile nabou-2.1.dzikus/Makefile
  
  #
  # the location of the nabou program itself
-@@ -18,7 +18,7 @@
+@@ -18,15 +18,15 @@
  
  #
  # docs, such as readme and samples...
@@ -19,7 +19,8 @@ diff -urN nabou-2.1/Makefile nabou-2.1.dzikus/Makefile
  
  #
  # default config destination
-@@ -26,7 +26,7 @@
+-ETC     = /etc/nabou.d
++ETC     = /etc/nabou
  
  #
  # default database directory (as used in the sample config)
