@@ -1,62 +1,49 @@
-diff -urN nabou-2.1/Makefile nabou-2.1.dzikus/Makefile
---- nabou-2.1/Makefile	Wed Feb 27 23:33:32 2002
-+++ nabou-2.1.dzikus/Makefile	Fri Mar  8 10:37:11 2002
-@@ -10,7 +10,7 @@
+--- nabou-2.4/Makefile.in.orig	2004-08-30 23:10:35.000000000 +0200
++++ nabou-2.4/Makefile.in	2004-11-19 15:56:41.000000000 +0100
+@@ -50,9 +50,9 @@
  
- #
- # manual pages
+ PREFIX  = @prefix@
+ VERSION = @VERSION@
 -MAN     = $(PREFIX)/man/man1
 +MAN     = $(PREFIX)/share/man/man1
- 
- #
- # the location of the nabou program itself
-@@ -18,15 +18,15 @@
- 
- #
- # docs, such as readme and samples...
--DOC     = $(PREFIX)/doc/nabou-2.1
-+DOC     = $(PREFIX)/share/doc/nabou-2.1
- 
- #
- # default config destination
--ETC     = /etc/nabou.d
-+ETC     = /etc/nabou
- 
- #
- # default database directory (as used in the sample config)
--DB      = /var/nabou
-+DB      = /var/lib/nabou
- 
- #
- # which sample config to use as the default
-@@ -69,17 +69,17 @@
+ SBIN    = $(PREFIX)/sbin
+-DOC     = $(PREFIX)/doc/nabou-$(VERSION)
++DOC     = $(PREFIX)/share/doc/nabou-$(VERSION)
+ ETC     = @sysconfdir@
+ DB      = @localstatedir@
+ DISTCFG = nabourc.dist
+@@ -86,25 +86,25 @@
  
  
  install:
--	$(INSTALL) -d -m 755 -o $(OWNER) -g $(GROUP) $(PREFIX) $(MAN) $(SBIN) $(DOC)
--	$(INSTALL) -d -m $(D_PERM) -o $(OWNER) -g $(GROUP) $(ETC)
--	$(INSTALL) -d -m $(N_PERM) -o $(OWNER) -g $(GROUP) $(DB)
--
--	$(INSTALL) -m $(N_PERM) -o $(OWNER) -g $(GROUP) bin/nabou $(SBIN)/
--	$(INSTALL) -m $(C_PERM) -o $(OWNER) -g $(GROUP) $(SAMPLE) $(ETC)/nabourc
--	$(INSTALL) -m 644 -o $(OWNER) -g $(GROUP) man/* $(MAN)/
--
--	$(INSTALL) -d -m 755 -o $(OWNER) -g $(GROUP) $(DOC)/sample_configs
--	$(INSTALL) -m 644 -o $(OWNER) -g $(GROUP) sample_configs/* $(DOC)/sample_configs/
--	$(INSTALL) -m 644 -o $(OWNER) -g $(GROUP) $(DOCS) $(DOC)/
-+	$(INSTALL) -d -m 755 $(DESTDIR)$(PREFIX) $(DESTDIR)$(MAN) $(DESTDIR)$(SBIN) $(DESTDIR)$(DOC)
-+	$(INSTALL) -d -m $(D_PERM) $(DESTDIR)$(ETC)
-+	$(INSTALL) -d -m $(N_PERM) $(DESTDIR)$(DB)
-+
-+	$(INSTALL) -m $(N_PERM) bin/nabou $(DESTDIR)$(SBIN)/
-+	$(INSTALL) -m $(C_PERM) $(SAMPLE) $(DESTDIR)$(ETC)/nabourc
-+	$(INSTALL) -m 644 man/* $(DESTDIR)$(MAN)/
-+
-+	$(INSTALL) -d -m 755 $(DESTDIR)$(DOC)/sample_configs
-+	$(INSTALL) -m 644 sample_configs/* $(DESTDIR)$(DOC)/sample_configs/
-+	$(INSTALL) -m 644 $(DOCS) $(DESTDIR)$(DOC)/
+-	$(install) -d -m 755 -o $(OWNER) -g $(GROUP) $(PREFIX) $(MAN) $(SBIN) $(DOC)
+-	$(install) -d -m $(D_PERM) -o $(OWNER) -g $(GROUP) $(ETC)
+-	$(install) -d -m $(N_PERM) -o $(OWNER) -g $(GROUP) $(DB)
++	$(install) -d -m 755 $(DESTDIR)$(PREFIX) $(DESTDIR)$(MAN) $(DESTDIR)$(SBIN) $(DESTDIR)$(DOC)
++	$(install) -d -m $(D_PERM) $(DESTDIR)$(ETC)
++	$(install) -d -m $(N_PERM) $(DESTDIR)$(DB)
  
- 	@echo "NABOU istalled. Edit the config file $(ETC)/nabourc and"
--	@echo "install a cronjob to run nabou on a regular basis."
-\ No newline at end of file
-+	@echo "install a cronjob to run nabou on a regular basis."
+-	$(install) -m $(N_PERM) -o $(OWNER) -g $(GROUP) bin/nabou $(SBIN)/
++	$(install) -m $(N_PERM) bin/nabou $(DESTDIR)$(SBIN)/
+ 
+ ifeq 	($(GOTCFG), $(ETC)/nabourc)
+ 	@echo "*** Existing config '$(ETC)/nabourc' will be kept untouched. ***"
+ else
+ 	echo $(GOTCFG)
+-	$(install) -m $(C_PERM) -o $(OWNER) -g $(GROUP) $(DISTCFG) $(ETC)/nabourc
++	$(install) -m $(C_PERM) $(DISTCFG) $(DESTDIR)$(ETC)/nabourc
+ endif
+ 
+ 
+-	$(install) -m 644 -o $(OWNER) -g $(GROUP) man/* $(MAN)/
++	$(install) -m 644 man/* $(DESTDIR)$(MAN)/
+ 
+-	$(install) -d -m 755 -o $(OWNER) -g $(GROUP) $(DOC)/sample_configs
+-	$(install) -m 644 -o $(OWNER) -g $(GROUP) sample_configs/* $(DOC)/sample_configs/
+-	$(install) -m 644 -o $(OWNER) -g $(GROUP) $(DOCS) $(DOC)/
++	$(install) -d -m 755 $(DESTDIR)$(DOC)/sample_configs
++	$(install) -m 644 sample_configs/* $(DESTDIR)$(DOC)/sample_configs/
++	$(install) -m 644 $(DOCS) $(DESTDIR)$(DOC)/
+ 
+ 	@echo
+ 	@echo "***"
