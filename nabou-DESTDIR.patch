@@ -1,0 +1,61 @@
+diff -urN nabou-2.1/Makefile nabou-2.1.dzikus/Makefile
+--- nabou-2.1/Makefile	Wed Feb 27 23:33:32 2002
++++ nabou-2.1.dzikus/Makefile	Tue Mar  5 13:46:08 2002
+@@ -10,7 +10,7 @@
+ 
+ #
+ # manual pages
+-MAN     = $(PREFIX)/man/man1
++MAN     = $(PREFIX)/share/man/man1
+ 
+ #
+ # the location of the nabou program itself
+@@ -18,7 +18,7 @@
+ 
+ #
+ # docs, such as readme and samples...
+-DOC     = $(PREFIX)/doc/nabou-2.1
++DOC     = $(PREFIX)/share/doc/nabou-2.1
+ 
+ #
+ # default config destination
+@@ -26,7 +26,7 @@
+ 
+ #
+ # default database directory (as used in the sample config)
+-DB      = /var/nabou
++DB      = /var/lib/nabou
+ 
+ #
+ # which sample config to use as the default
+@@ -69,17 +69,17 @@
+ 
+ 
+ install:
+-	$(INSTALL) -d -m 755 -o $(OWNER) -g $(GROUP) $(PREFIX) $(MAN) $(SBIN) $(DOC)
+-	$(INSTALL) -d -m $(D_PERM) -o $(OWNER) -g $(GROUP) $(ETC)
+-	$(INSTALL) -d -m $(N_PERM) -o $(OWNER) -g $(GROUP) $(DB)
+-
+-	$(INSTALL) -m $(N_PERM) -o $(OWNER) -g $(GROUP) bin/nabou $(SBIN)/
+-	$(INSTALL) -m $(C_PERM) -o $(OWNER) -g $(GROUP) $(SAMPLE) $(ETC)/nabourc
+-	$(INSTALL) -m 644 -o $(OWNER) -g $(GROUP) man/* $(MAN)/
+-
+-	$(INSTALL) -d -m 755 -o $(OWNER) -g $(GROUP) $(DOC)/sample_configs
+-	$(INSTALL) -m 644 -o $(OWNER) -g $(GROUP) sample_configs/* $(DOC)/sample_configs/
+-	$(INSTALL) -m 644 -o $(OWNER) -g $(GROUP) $(DOCS) $(DOC)/
++	$(INSTALL) -d -m 755 $(DESTDIR)$(PREFIX) $(DESTDIR)$(MAN) $(DESTDIR)$(SBIN) $(DESTDIR)$(DOC)
++	$(INSTALL) -d -m $(D_PERM) $(DESTDIR)$(ETC)
++	$(INSTALL) -d -m $(N_PERM) $(DESTDIR)$(DB)
++
++	$(INSTALL) -m $(N_PERM) bin/nabou $(DESTDIR)$(SBIN)/
++	$(INSTALL) -m $(C_PERM) $(SAMPLE) $(DESTDIR)$(ETC)/nabourc
++	$(INSTALL) -m 644 man/* $(DESTDIR)$(MAN)/
++
++	$(INSTALL) -d -m 755 $(DESTDIR)$(DOC)/sample_configs
++	$(INSTALL) -m 644 sample_configs/* $(DESTDIR)$(DOC)/sample_configs/
++	$(INSTALL) -m 644 $(DOCS) $(DESTDIR)$(DOC)/
+ 
+ 	@echo "NABOU istalled. Edit the config file $(ETC)/nabourc and"
+-	@echo "install a cronjob to run nabou on a regular basis."
+\ No newline at end of file
++	@echo "install a cronjob to run nabou on a regular basis."

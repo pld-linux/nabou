@@ -1,0 +1,12 @@
+diff -urN nabou-2.1/bin/nabou nabou-2.1.dzikus/bin/nabou
+--- nabou-2.1/bin/nabou	Wed Feb 27 22:17:55 2002
++++ nabou-2.1.dzikus/bin/nabou	Tue Mar  5 13:57:47 2002
+@@ -33,7 +33,7 @@
+ use Data::Dumper;
+ 
+ # you may edit these values
+-my $configfile = "/etc/nabourc";
++my $configfile = "/etc/nabou.d/nabourc";
+ my $separator  = "  ";
+ my $underline  = "  " . "-" x 56 . "";
+ my $suidroot   = "/";
