@@ -2,18 +2,19 @@
 Summary:	Nabou is a system integrity monitor
 Summary(pl):	Nabou - narzêdzie monitoruj±ce integralno¶æ systemu
 Name:		nabou
-Version:	2.1
+Version:	2.4
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.daemon.de/scip/Apps/nabou/%{name}-%{version}.tar.gz
-# Source0-md5:	7008a8dc41e20b9f3a3b7fe571307805
+# Source0-md5:	508fc306ff5816970986f5d8a320483d
 Source1:	%{name}-check
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-config.patch
 URL:		http://www.nabou.org/en/software/nabou/
 BuildRequires:	perl-modules
+Requires:	perl-Config-General
 Requires:	crondaemon
 Requires:	lsof
 Requires:	sh-utils
@@ -47,13 +48,17 @@ Pozwala te¿ zdefiniowaæ w³asne testy.
 %patch1	-p1
 %patch2	-p1
 
+%build
+%configure2_13
+
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_pkglibdir}
+install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.daily/nabou-check
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.daily/nabou-check
 
 %clean
 rm -rf $RPM_BUILD_ROOT
