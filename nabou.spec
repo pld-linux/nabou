@@ -6,13 +6,13 @@ Version:	2.1
 Release:	1
 License:	GPL
 Group:		Applications/System
-Source0:	http://www.nabou.org/%{name}-%{version}.tar.gz
-# Source0-md5:	55892f4d42d374a09dd568c580b5bc64
+Source0:	ftp://ftp.daemon.de/scip/Apps/nabou/%{name}-%{version}.tar.gz
+# Source0-md5:	7008a8dc41e20b9f3a3b7fe571307805
 Source1:	%{name}-check
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-config.patch
-URL:		http://www.nabou.org/
+URL:		http://www.nabou.org/en/software/nabou/
 Requires:	crondaemon
 Requires:	lsof
 Requires:	smtpdaemon
