@@ -1,0 +1,46 @@
+diff -urN nabou-2.1/sample_configs/linuxrc nabou-2.1.dzikus/sample_configs/linuxrc
+--- nabou-2.1/sample_configs/linuxrc	Wed Feb 27 23:31:56 2002
++++ nabou-2.1.dzikus/sample_configs/linuxrc	Fri Mar  8 10:43:44 2002
+@@ -38,7 +38,7 @@
+ # turn on/off the features we want to use
+ #
+ useshadow	1       # check the shado file too
+-usemail		0	# send the report via email
++usemail		1	# send the report via email
+ use_algo	MD5
+ use_ls          1       # print also a ls -l alike line for matching files
+ use_temp_sum    0       # do not use a temporary dbm file for check results
+@@ -67,7 +67,7 @@
+ # database configuration
+ #
+ <db>
+-	basedir		 /var/nabou   # the dir where the databases resides
++	basedir		 /var/lib/nabou   # the dir where the databases resides
+ 	readonly	 1
+ </db>
+ 
+@@ -197,6 +197,7 @@
+ 
+ <check chk_logfile>
+        /var/log/messages
++       /var/log/maillog
+        /var/log/wtmp
+        /var/log/faillog
+        /var/log/lastlog
+@@ -214,15 +215,13 @@
+        /bin
+        /sbin
+        /var/lib
+-       /var/named
+        /var/yp
+ </check>
+ 
+ <check chk_subdir>
+        /home
+-       /home/carmen
++       /home/users
+        /
+-       /export/home
+ </check>
+ 
+ 
