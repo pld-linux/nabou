@@ -3,7 +3,7 @@ Summary:	Nabou is a system integrity monitor
 Summary(pl):	Nabou - narzêdzie monitoruj±ce integralno¶æ systemu
 Name:		nabou
 Version:	2.1
-Release:	0.8
+Release:	0.9
 License:	GPL
 Group:		Applications/System
 Source0:	http://www.nabou.org/%{name}-%{version}.tar.gz
