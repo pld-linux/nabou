@@ -20,7 +20,7 @@ Requires:	sh-utils
 Requires:	smtpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define         _noautoreq      "perl(ANY_File)"
+%define         _noautoreq      'perl(ANY_File)'
 
 %define         _sysconfdir     /etc/%{name}
 %define         _pkglibdir      /var/lib/%{name}
