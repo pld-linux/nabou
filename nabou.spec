@@ -1,6 +1,6 @@
 %include        /usr/lib/rpm/macros.perl
-
-Summary:	Nabou is a system integrity monitor.
+Summary:	Nabou is a system integrity monitor
+Summary(pl):	Nabou - narzêdzie monitoruj±ce integralno¶æ systemu
 Name:		nabou
 Version:	2.1
 Release:	0.3
@@ -19,10 +19,18 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Nabou is a system integrity monitor. That means, it runs every night
 and watches for changes on files. If a file has changed in any way, it
-will inform you by email(if you prefer that). Beside of this it can
+will inform you by email (if you prefer that). Beside of this it can
 also look for changed or added user accounts, cronjobs, weird
 processes and suid files. And you can define your own checks using
 inline scriptlets.
+
+%description -l pl
+Nabou jest narzêdziem monitoruj±cym integralno¶æ systemu. Oznacza to,
+¿e uruchamia siê ka¿dej nocy i szuka zmian w plikach. Je¿eli plik
+zosta³ zmieniony w jakikolwiek sposób, mo¿e poinformowaæ o tym poczt±
+elektroniczn±. Oprócz tego mo¿e szukaæ zmienionych lub dodanych kont
+u¿ytkowników, prac crona, dziwnych procesów i plików z bitem suid.
+Pozwala te¿ zdefiniowaæ w³asne testy.
 
 %prep
 %setup  -q
