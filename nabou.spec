@@ -13,11 +13,11 @@ Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-config.patch
 URL:		http://www.nabou.org/en/software/nabou/
+BuildRequires:	perl-modules
 Requires:	crondaemon
 Requires:	lsof
-Requires:	smtpdaemon
 Requires:	sh-utils
-BuildRequires:	perl-modules
+Requires:	smtpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _noautoreq      "perl(ANY_File)"
@@ -50,7 +50,8 @@ Pozwala te¿ zdefiniowaæ w³asne testy.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.daily/nabou-check
 
