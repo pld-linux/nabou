@@ -7,6 +7,7 @@ Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://www.nabou.org/%{name}-%{version}.tar.gz
+# Source0-md5:	55892f4d42d374a09dd568c580b5bc64
 Source1:	%{name}-check
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
