@@ -18,9 +18,9 @@ Requires:	crondaemon
 Requires:	lsof
 Requires:	perl-Config-General
 Requires:	perl-Crypt-CBC
-Requires:	perl-Crypt-Primes
 Requires:	perl-Crypt-OpenSSL-RSA
 Requires:	perl-Crypt-OpenSSL-Random
+Requires:	perl-Crypt-Primes
 Requires:	sh-utils
 Requires:	smtpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README sample_configs
 %attr(750,root,root) %dir %{_sysconfdir}
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/nabourc
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nabourc
 %attr(700,root,root) %config(noreplace) /etc/cron.daily/nabou-check
 %attr(755,root,root) %{_sbindir}/nabou
 %attr(750,root,root) %dir %{_pkglibdir}
