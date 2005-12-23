@@ -4,7 +4,7 @@ Summary(pl):	Nabou - narzêdzie monitoruj±ce integralno¶æ systemu
 Name:		nabou
 Version:	2.4
 Release:	2
-License:	GPL
+License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.daemon.de/scip/Apps/nabou/%{name}-%{version}.tar.gz
 # Source0-md5:	508fc306ff5816970986f5d8a320483d
@@ -83,7 +83,7 @@ EOF
 
 %files
 %defattr(644,root,root,755)
-%doc README sample_configs
+%doc Changelog README sample_configs
 %attr(750,root,root) %dir %{_sysconfdir}
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nabourc
 %attr(700,root,root) %config(noreplace) /etc/cron.daily/nabou-check
