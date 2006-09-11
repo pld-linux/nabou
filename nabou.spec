@@ -13,7 +13,7 @@ Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-paths.patch
 Patch2:		%{name}-config.patch
 URL:		http://www.daemon.de/Nabou
-BuildRequires:	perl-modules
+BuildRequires:	rpm-perlprov
 Requires:	crondaemon
 Requires:	lsof
 Requires:	perl-Config-General
