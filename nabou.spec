@@ -68,6 +68,8 @@ install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.daily/nabou-check
 
 install sample_configs/linuxrc $RPM_BUILD_ROOT%{_sysconfdir}/nabourc
 
+rm $RPM_BUILD_ROOT%{_mandir}/man1/{nabou,nabourc}.pod
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -83,7 +85,7 @@ EOF
 
 %files
 %defattr(644,root,root,755)
-%doc Changelog README sample_configs
+%doc Changelog README README.modules sample_configs
 %attr(750,root,root) %dir %{_sysconfdir}
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/nabourc
 %attr(700,root,root) %config(noreplace) /etc/cron.daily/nabou-check
