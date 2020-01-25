@@ -1,4 +1,3 @@
-%include        /usr/lib/rpm/macros.perl
 Summary:	Nabou is a system integrity monitor
 Summary(pl.UTF-8):	Nabou - narzędzie monitorujące integralność systemu
 Name:		nabou
